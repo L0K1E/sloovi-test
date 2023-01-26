@@ -124,7 +124,7 @@ def all_template(user):
 #Get single template
 @app.route('/template/<id>', methods=['GET'])
 @login_required
-def get_template(id):
+def get_template(user, id):
     template = db.template.find_one({'_id': ObjectId(id)})
     response = json_util.dumps(template)
     return Response(response, mimetype="application/json")
